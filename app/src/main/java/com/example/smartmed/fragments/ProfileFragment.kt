@@ -21,7 +21,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentProfileBinding.bind(view)
 
-        // Загружаем данные профиля
         displayProfile(ProfileRepository.getProfile())
     }
 
@@ -29,7 +28,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun displayProfile(profile: ProfileModel) {
         with(binding) {
-            // Загрузка изображения профиля
             Glide.with(this@ProfileFragment)
                 .load(profile.imageUrl)
                 .placeholder(R.drawable.ic_error_doctor_appointment)
@@ -37,7 +35,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 .circleCrop()
                 .into(profileImage)
 
-            // Основная информация
             loginText.text = profile.login
             ageText.text = "${profile.age} лет"
             genderText.text = when (profile.gender) {

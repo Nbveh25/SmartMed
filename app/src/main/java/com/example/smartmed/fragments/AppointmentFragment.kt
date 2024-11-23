@@ -14,7 +14,6 @@ import com.example.smartmed.repository.AppointmentRepository
 class AppointmentFragment : Fragment(R.layout.fragment_appointment) {
     private lateinit var binding: FragmentAppointmentBinding
     private val appointmentAdapter = AppointmentAdapter { appointment ->
-        // Обработка клика по записи
         handleAppointmentClick(appointment)
     }
 
@@ -34,17 +33,12 @@ class AppointmentFragment : Fragment(R.layout.fragment_appointment) {
     }
 
     private fun loadAppointments() {
-        // Здесь будет загрузка данных с сервера
-        // Пока используем тестовые данные
         val testData = AppointmentRepository.generateSampleAppointments()
-            // Добавьте больше тестовых данных при необходимости
-
 
         appointmentAdapter.submitList(testData)
     }
 
     private fun handleAppointmentClick(appointment: AppointmentModel) {
-        // Обработка записи к врачу
         Toast.makeText(
             requireContext(),
             "Запись к ${appointment.fio} на ${appointment.startTime}",

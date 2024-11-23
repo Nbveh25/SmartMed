@@ -40,7 +40,6 @@ class AppointmentAdapter(
 
         fun bind(appointment: AppointmentModel) {
             with(binding) {
-                // Загрузка изображения с помощью Glide
                 Glide.with(doctorImage)
                     .load(appointment.imageUrl)
                     .circleCrop()

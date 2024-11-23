@@ -1,21 +1,14 @@
 package com.example.smartmed.activity
 
-import QuestionData
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.media.MediaPlayer
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.os.VibrationEffect
-import android.os.Vibrator
 import android.view.View
-import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import com.example.smartmed.R
 import com.example.smartmed.adapter.ViewPagerAdapter
@@ -23,7 +16,6 @@ import com.example.smartmed.databinding.ActivityMainBinding
 import com.example.smartmed.fragments.QuestionFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayoutMediator
-import java.util.jar.Manifest
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -127,8 +119,7 @@ class MainActivity : AppCompatActivity() {
                 if (grantResults.isNotEmpty() &&
                     grantResults[0] == PackageManager.PERMISSION_GRANTED
                 ) {
-                    // Повторяем попытку звонка после получения разрешения
-                    makePhoneCall(PHONE_NUMBER)  // Добавьте phoneNumber как свойство класса
+                    makePhoneCall(PHONE_NUMBER)
                 } else {
                     Toast.makeText(
                         this,
@@ -142,15 +133,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupQuestionButton() {
         binding.rightButton.setOnClickListener {
-            // Скрываем ViewPager, кнопку SOS и весь AppBarLayout
             binding.viewPager.visibility = View.GONE
             binding.sosButton.visibility = View.GONE
             binding.appBarLayout.visibility = View.GONE
 
-            // Показываем контейнер фрагмента
             binding.fragmentContainer.visibility = View.VISIBLE
 
-            // Запускаем фрагмент
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, QuestionFragment())
                 .addToBackStack(null)
@@ -160,12 +148,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         if (supportFragmentManager.backStackEntryCount > 0) {
-            // Возвращаем видимость ViewPager, кнопки SOS и AppBarLayout
             binding.viewPager.visibility = View.VISIBLE
             binding.sosButton.visibility = View.VISIBLE
             binding.appBarLayout.visibility = View.VISIBLE
 
-            // Скрываем контейнер фрагмента
             binding.fragmentContainer.visibility = View.GONE
 
             supportFragmentManager.popBackStack()

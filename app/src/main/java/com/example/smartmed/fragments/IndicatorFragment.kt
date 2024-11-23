@@ -44,7 +44,6 @@ class IndicatorFragment : Fragment(R.layout.fragment_indicator) {
     }
 
     private fun updateIndicators() {
-        // Генерация значений с большим диапазоном для демонстрации
         val pulse = Random.nextInt(50, 110)
         val pressureSystolic = Random.nextInt(100, 140)
         val pressureDiastolic = Random.nextInt(60, 100)
@@ -52,7 +51,6 @@ class IndicatorFragment : Fragment(R.layout.fragment_indicator) {
         val saturation = Random.nextInt(90, 100)
 
         with(binding) {
-            // Обновление пульса
             pulseValue.text = "$pulse уд/мин"
             pulseLayout.setBackgroundColor(getColorForValue(
                 pulse.toFloat(),
@@ -60,14 +58,12 @@ class IndicatorFragment : Fragment(R.layout.fragment_indicator) {
                 PULSE_MAX.toFloat()
             ))
 
-            // Обновление давления
             pressureValue.text = "$pressureSystolic/$pressureDiastolic"
             pressureLayout.setBackgroundColor(getColorForPressure(
                 pressureSystolic,
                 pressureDiastolic
             ))
 
-            // Обновление дыхания
             breathingValue.text = "$breathing/мин"
             breathingLayout.setBackgroundColor(getColorForValue(
                 breathing.toFloat(),
@@ -75,7 +71,6 @@ class IndicatorFragment : Fragment(R.layout.fragment_indicator) {
                 BREATHING_MAX.toFloat()
             ))
 
-            // Обновление сатурации
             saturationValue.text = "$saturation%"
             saturationLayout.setBackgroundColor(getColorForValue(
                 saturation.toFloat(),

@@ -17,7 +17,6 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Проверяем, залогинен ли пользователь
         if (isUserLoggedIn()) {
             startMainActivity()
             finish()
@@ -43,7 +42,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun validateCredentials(login: String, password: String): Boolean {
-        // Здесь ваша логика валидации
         return login.isNotEmpty() && password.isNotEmpty()
     }
 
