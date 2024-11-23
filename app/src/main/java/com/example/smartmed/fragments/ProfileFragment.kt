@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.smartmed.R
 import com.example.smartmed.databinding.FragmentThirdBinding
 
-class ProfileFragment : Fragment(R.layout.fragment_third) {
+class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private lateinit var binding: FragmentThirdBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
