@@ -1,4 +1,5 @@
 import android.net.Uri
+import android.os.Parcelable
 
 // AttachmentModel.kt
 data class AttachmentModel(

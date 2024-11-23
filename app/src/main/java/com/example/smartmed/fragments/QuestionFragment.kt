@@ -20,6 +20,8 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
     private val attachedFiles = mutableListOf<AttachmentModel>()
     private lateinit var attachmentAdapter: AttachmentAdapter
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentQuestionBinding.bind(view)

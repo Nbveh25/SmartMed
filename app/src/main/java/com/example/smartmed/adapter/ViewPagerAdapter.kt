@@ -1,11 +1,11 @@
 package com.example.smartmed.adapter
 
+import ProfileFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.smartmed.fragments.AppointmentFragment
 import com.example.smartmed.fragments.IndicatorFragment
-import com.example.smartmed.fragments.ProfileFragment
 
 class ViewPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
     override fun getItemCount(): Int = 3

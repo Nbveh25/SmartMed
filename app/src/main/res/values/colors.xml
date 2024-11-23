@@ -12,4 +12,5 @@
     <color name="pressure_blue">#1E88E5</color>
     <color name="oxygen_green">#43A047</color>
     <color name="breathing_purple">#8E24AA</color>
+    <color name="danger_background">#33FF0000</color>
 </resources>
